@@ -16,10 +16,14 @@ const dbURL =
 
 app.use(cors());
 app.use("/Uploads", express.static("Uploads"));
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+
 //parse request of content-type: application/json
 app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from the React app
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
 
 //parse request of content-type: application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));

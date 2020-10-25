@@ -149,8 +149,8 @@ input[type="file"] {
   align-items: center;
   background: none;
   border: 2px solid #490d40;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   line-height: inherit;
   outline: none;
@@ -166,7 +166,7 @@ input[type="file"] {
 .add-more > i {
   color: #490d40;
   margin: auto;
-  font-weight: lighter;
+  font-size: 13px;
 }
 .topic > span {
   color: #490d40;
