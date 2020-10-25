@@ -5,21 +5,14 @@
   "main": "app.js",
   "scripts": {
     "start": "node start.js",
+    "client": "npm start --prefix client",
     "server": "nodemon start.js",
     "m-build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run m-build",
-    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties"
-    ]
-  },
+  
   "author": "Solomon Ndifereke",
   "license": "ISC",
   "dependencies": {
