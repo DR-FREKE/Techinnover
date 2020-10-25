@@ -44,7 +44,7 @@ con.on("open", () => {
   console.log("connected...");
 });
 
-app.get("/", (req, res) => {
+app.get("/start", (req, res) => {
   res.json({ message: "Welcome sir" });
 });
 
