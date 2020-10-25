@@ -3,7 +3,11 @@ import {
   SET_CUSTOMER_SUCCESS,
 } from "../action/action.types";
 
-export const customerReducer = (state = {}, action) => {
+const initialState = {
+  message: "",
+};
+
+export const customerReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SENDING":
       return {
