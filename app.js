@@ -32,7 +32,7 @@ app.use("/api", UserApi);
 
 //handle connection to database using mongoose
 mongoose.connect(
-  process.env.MONGODB_URI || dbURL,
+  dbURL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (err) {

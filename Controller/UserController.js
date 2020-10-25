@@ -60,7 +60,7 @@ class UserController {
       if (error.code == 11000) {
         res.status(409).json({ response_message: "user already exist" });
       }
-      res.status(400).json(error);
+      res.status(404).json(error);
     }
   };
 }
