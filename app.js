@@ -12,6 +12,8 @@ const dbURL =
 
 app.use(cors());
 app.use("/Uploads", express.static("Uploads"));
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
 //parse request of content-type: application/json
 app.use(express.json());
 
@@ -34,6 +36,10 @@ const con = mongoose.connection;
 
 con.on("open", () => {
   console.log("connected...");
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 const server = http.listen(5000, "localhost", () => {
