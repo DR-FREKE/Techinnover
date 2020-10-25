@@ -9,6 +9,8 @@ import UserApi from "./Router/user.router";
 
 const app = express();
 const http = Server(app);
+
+const PORT = process.env.PORT || 5000;
 const dbURL =
   "mongodb://techinnover:solagbaby96@ds035533.mlab.com:35533/techinnover";
 
@@ -26,7 +28,7 @@ app.use("/api", UserApi);
 
 //handle connection to database using mongoose
 mongoose.connect(
-  dbURL,
+  process.env.MONGODB_URI || dbURL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (err) {
@@ -40,12 +42,10 @@ con.on("open", () => {
   console.log("connected...");
 });
 
-const port = process.env.PORT || 5000;
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
-const server = http.listen(port, "localhost", () => {
+const server = http.listen(PORT, "localhost", () => {
   console.log(`app listening on port ${server.address().port}`);
 });
