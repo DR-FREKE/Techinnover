@@ -4,7 +4,7 @@
   "description": "techininover project",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node start",
     "client": "npm start --prefix client",
     "server": "nodemon start.js",
     "m-build": "cd client && npm run build",
