@@ -1,4 +1,6 @@
 import "babel-polyfill";
+import fs from "fs";
+import path from "path";
 import Users from "../Model/user.model";
 
 class UserController {
@@ -58,7 +60,7 @@ class UserController {
       if (error.code == 11000) {
         res.status(409).json({ response_message: "user already exist" });
       }
-      res.status(404).json(error);
+      res.status(400).json(error);
     }
   };
 }

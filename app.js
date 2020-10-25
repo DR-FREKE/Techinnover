@@ -12,7 +12,7 @@ const http = Server(app);
 
 const PORT = process.env.PORT || 5000;
 const dbURL =
-  "mongodb://techinnover:solagbaby96@ds035533.mlab.com:35533/techinnover";
+  "mongodb+srv://techinnover:solagbaby96@techinnover.eqo7l.mongodb.net/techinnover?retryWrites=true&w=majority";
 
 app.use(cors());
 app.use("/Uploads", express.static("Uploads"));
@@ -20,8 +20,10 @@ app.use("/Uploads", express.static("Uploads"));
 //parse request of content-type: application/json
 app.use(express.json());
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from the React app
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
 
 //parse request of content-type: application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
