@@ -1,6 +1,7 @@
 "use strict";
 import express from "express";
 import mongoose from "mongoose";
+import bodyparser from "body-parser";
 import { Server } from "http";
 import fs from "fs";
 import path from "path";
@@ -17,14 +18,13 @@ const dbURL =
 app.use(cors());
 app.use("/Uploads", express.static("Uploads"));
 
+//parse request of content-type: application/x-www-form-urlencoded
+app.use(bodyparser.urlencoded({ extended: true }));
 //parse request of content-type: application/json
-app.use(express.json());
+app.use(bodyparser.json());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
-
-//parse request of content-type: application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", UserApi);
 

@@ -1,6 +1,5 @@
+"use strict";
 import "babel-polyfill";
-import fs from "fs";
-import path from "path";
 import Users from "../Model/user.model";
 
 class UserController {
