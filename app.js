@@ -44,8 +44,12 @@ con.on("open", () => {
   console.log("connected...");
 });
 
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome sir" });
+});
+
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.sendFile(path.join(__dirname + "/client/public/index.html"));
 });
 
 const server = http.listen(PORT, "localhost", () => {
