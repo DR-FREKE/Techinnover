@@ -40,10 +40,12 @@ con.on("open", () => {
   console.log("connected...");
 });
 
+const port = process.env.PORT || 5000;
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
-const server = http.listen(5000, "localhost", () => {
+const server = http.listen(port, "localhost", () => {
   console.log(`app listening on port ${server.address().port}`);
 });
