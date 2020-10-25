@@ -45,9 +45,10 @@ con.on("open", () => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.json({ message: "welcome" });
+  // res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
-const server = http.listen(PORT, "localhost", () => {
+const server = http.listen(PORT, () => {
   console.log(`app listening on port ${server.address().port}`);
 });
