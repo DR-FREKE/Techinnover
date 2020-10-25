@@ -23,8 +23,10 @@ app.use(bodyparser.urlencoded({ extended: true }));
 //parse request of content-type: application/json
 app.use(bodyparser.json());
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from the React app
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
 
 app.use("/api", UserApi);
 
