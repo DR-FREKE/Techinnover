@@ -24,6 +24,7 @@ export const customerReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        message: "",
         fail_message: action.payload,
       };
     default:
